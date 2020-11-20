@@ -1,0 +1,47 @@
+<div class="pageloader is-info" [class.is-active]="isLoading">
+    <span class="title">Carregando...</span>
+</div>
+
+<div class="columns is-multiline">
+    <div class="column is-7-tablet is-5-widescreen">
+
+        <nav class="breadcrumb is-small has-bullet-separator" aria-label="breadcrumbs">
+            <ul>
+                <li><a [routerLink]="['/dragons']">Dragões in Memoriam</a></li>
+                <li class="is-active"><a href="#" aria-current="page">{{ dragon.name }}</a></li>
+            </ul>
+        </nav>
+
+        <h2 class="title">{{ dragon.name }}</h2>
+
+        <div class="card">
+            <div class="card-content">
+                <div class="content">
+                    <dl class="dragon-data">
+                        <dt>Tipo</dt>
+                        <dd>{{ dragon.type.charAt(0).toUpperCase() + dragon.type.slice(1) }}</dd>
+
+                        <ng-container *ngIf="dragon.histories && dragon.histories.length > 0">
+                            <dt>Histórias</dt>
+                            <dd>{{ dragon.histories.join(', ') }}</dd>
+                        </ng-container>
+
+                        <dt>Data de criação</dt>
+                        <dd>{{ dragon.createdAt | date: 'EEEE, dd \'de\' MMM \'às\' HH:mm' }}</dd>
+
+                        <ng-container *ngIf="(dragon.updatedAt && dragon.updatedAt !== '')">
+                            <dt>Última atualização</dt>
+                            <dd>{{ dragon.updatedAt | date: 'EEEE, dd \'de\' MMM \'às\' HH:mm' }}</dd>
+                        </ng-container>
+                    </dl>
+                </div>
+            </div>
+
+            <footer class="card-footer">
+                <a href="#" class="card-footer-item" [routerLink]="['/dragons', 'edit', dragon.id]">Editar</a>
+                <a class="card-footer-item" (click)="removeDragon(dragon.id)">Remover</a>
+            </footer>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="pageloader is-info" [class.is-active]="isLoading">
+    <span class="title">Carregando</span>
+</div>
+
+<div class="columns is-multiline">
+    <div class="column is-12">
+
+        <nav class="breadcrumb is-small has-bullet-separator" aria-label="breadcrumbs">
+            <ul>
+                <li><a [routerLink]="['/dragons']">Dragões in Memoriam</a></li>
+                <ng-container *ngIf="isEditMode">
+                    <li>
+                        <a [routerLink]="['/dragons', dragon.id]">{{ dragon.name }}</a>
+                    </li>
+                    <li class="is-active">
+                        <a href="#" aria-current="page">Editar dragão</a>
+                    </li>
+                </ng-container>
+                <li class="is-active" *ngIf="!isEditMode">
+                    <a href="#" aria-current="page">Cadastrar dragão</a>
+                </li>
+            </ul>
+        </nav>
+
+        <h2 class="title">{{ isEditMode ? 'Editar': 'Cadastrar' }} dragão</h2>
+    </div>
+    <div class="column is-8-tablet is-7-desktop is-6-widescreen">
+
+        <form *ngIf="!isLoading" [formGroup]="dragonForm" [class.hasSubmmited]="hasSubmmited" (ngSubmit)="submitForm()" novalidate>
+            <div class="message is-small is-danger" *ngIf="(hasSubmmited && !dragonForm.valid) || hasFailed">
+                <div class="message-header">Ops...</div>
+                <div class="message-body">
+                    <p>Não foi possível cadastrar o Dragão.</p>
+                    <p>Por favor, verifique os campos marcados e tente novamente.</p>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="dragonName" class="label">Nome</label>
+                <div class="control">
+                    <input type="text" id="dragonName" class="input" placeholder="Qual o nome do dragão?" formControlName="name">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="dragonType" class="label">Tipo</label>
+                <div class="control">
+                    <input type="text" id="dragonType" class="input" placeholder="Qual o tipo do dragão?" formControlName="type">
+                </div>
+            </div>
+
+            <div class="histories-wrapper">
+                <div class="columns">
+                    <div class="column is-12-tablet is-9-desktop">
+                        <h3 class="title is-5">Histórias</h3>
+                        <p class="subtitle is-6">Adicione aqui as histórias do dragão.</p>
+
+                        <div class="columns is-multiline is-mobile" formArrayName="histories">
+                            <ng-container *ngFor="let history of histories.controls; let i = index" [formGroupName]="i">
+                                <div class="column is-10">
+                                    <div class="field">
+                                        <div class="control">
+                                            <input type="text" class="input" placeholder="Qual o nome da história?" formControlName="history">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="column is-2">
+                                    <div class="organization__channels__btn-wrap">
+                                        <button type="button" class="button is-danger" (click)="removeHistory(i)">
+                                            <span class="icon">
+                                                <fa-icon icon="trash"></fa-icon>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <div class="message is-small is-info" *ngIf="!histories.length">
+                            <div class="message-body">Não encontramos relatos</div>
+                        </div>
+
+                        <button type="button" class="button is-link" (click)="addHistory()">Adicionar história</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <button type="button" class="button" [disabled]="isSendingData" (click)="resetForm()">{{ isEditMode ? 'Reset' : 'Limpar' }}</button>
+                </div>
+
+                <div class="control">
+                    <button type="submit" class="button is-primary" [class.is-loading]="isSendingData" [disabled]="isSendingData">{{ isEditMode ? 'Atualizar' : 'Cadastrar' }}</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

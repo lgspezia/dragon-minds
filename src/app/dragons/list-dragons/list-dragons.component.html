@@ -1,0 +1,68 @@
+<div class="pageloader is-info" [class.is-active]="isLoading">
+    <span class="title">Carregando</span>
+</div>
+
+<div class="columns is-multiline">
+    <div class="column is-12-tablet is-8-desktop is-9-fullhd">
+        <div class="level page-title-wrapper">
+            <div class="level-left">
+                <div class="level-item">
+                    <h2 class="title">Nossos Dragões</h2>
+                </div>
+            </div>
+
+            <div class="level-right">
+                <div class="level-item">
+                    <input class="input dragon__filter" type="text" placeholder="Encontrar Dragões" [(ngModel)]="filteredDragons">
+                </div>
+            </div>
+        </div>
+        <p>Alguns dragões históricos.</p>
+
+        <div *ngIf="dragons.length > 0" class="columns is-multiline dragons-list">
+
+            <div class="column is-6-tablet is-4-fullhd dragon" *ngFor="let dragon of dragons | orderBy: order : false: true | searchFilter: filteredDragons : ['name']">
+
+                <div class="box">
+                    <h2 class="title is-4 dragon__name">
+                        <a href="#" [routerLink]="['/dragons', dragon.id]">{{ dragon.name }}</a>
+                    </h2>
+
+                    <div class="field has-addons dragon__actions">
+                        <div class="control">
+                            <button type="button" class="button dragon__btn" title="Editar informações do dragão" [routerLink]="['/dragons', 'edit', dragon.id]">
+                                <span class="icon is-small">
+                                    <fa-icon icon="pencil-alt" size="sm"></fa-icon>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="control">
+                            <button type="button" class="button dragon__btn" title="Remover dragão" (click)="removeDragon(dragon.id)">
+                                <span class="icon is-small">
+                                    <fa-icon icon="trash" size="sm"></fa-icon>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <p>Conheça as histórias por trás dos dragões:</p>
+    </div>
+    <div class="column is-12-tablet is-4-desktop is-3-fullhd">
+
+        <!--<div class="message is-primary">-->
+        <div class="message-body">
+            <div class="content">
+                <button type="button" class="button is-info is-medium is-fullwidth" [routerLink]="['/dragons', 'new']">
+                    <span class="icon is-small"><fa-icon icon="dragon" size="xs"></fa-icon></span>
+                    <span>Novo Dragão</span>
+                </button>
+            </div>
+        </div>
+        <!--</div>-->
+
+    </div>
+</div>

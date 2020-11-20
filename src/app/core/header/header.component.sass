@@ -1,0 +1,52 @@
+//@import './../../../assets/styles/sass/mixins.sass'
+
+$amarelo-warning: #ffb400
+$alaranjado: #FF8B15
+$alaranjado-texto: #E45C18
+$vermelho: #D70A23
+$vermelho-danger: #990B24
+
+//+mediaTablet
+    .btn-logout
+        position: absolute
+        right: 0
+        top: 0
+
+.hero-body
+    flex-grow: 1
+    flex-shrink: 0
+    padding: 1rem 0.5rem
+
+
+.btn-logout
+    position: absolute
+    right: 0
+    top: 0
+
+
+.center
+    margin: 0
+    position: absolute
+    top: 50%
+    left: 50%
+    -ms-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
+
+
+.hero.is-info.is-bold
+    //background-image: linear-gradient(141deg, #00391a 0%, #006C43 71%, #008669 100%)
+    background-image: linear-gradient(141deg, $vermelho-danger 0%, $vermelho 71%, $alaranjado-texto 100%)
+
+
+.hero.is-info
+    background-color: $alaranjado-texto
+    color: #fff
+
+.button:hover
+    color: $vermelho-danger
+
+
+.button.is-info, .is-info
+    background-color: $vermelho-danger
+    border-color: transparent
+    color: $alaranjado-texto

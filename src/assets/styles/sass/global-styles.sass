@@ -1,0 +1,127 @@
+
+$amarelo-ouro: #ddd000
+$gray_bg_color_1: #93a3b5
+
+/*cores para botoes extra*/
+$azul-hover: rgba(0, 120, 220, 0.8)
+$azul-info-up: #3c50b4
+$azul-info-dark-up: darken($azul-info-up, 20%)
+
+
+$amarelo-warning: #ffb400
+$alaranjado: #FF8B15
+$alaranjado-texto: #E45C18
+$vermelho: #D70A23
+$vermelho-danger: #990B24
+
+$verde-success-darker: #476708
+$verde-success: #6f9508
+$verde-success-disable: rgba(110, 150, 10, 0.4)
+
+$azul-escuro-hot: #283C5A
+$azul-escuro-btn: rgba(15, 20, 60, 0.25)
+$light-cold-blue: #2f96b4
+
+$btn-read-color: #72B4B4
+$btn-read-color-hover: darken($light-cold-blue, 10%)
+
+$btn-create-color: #8AB160
+$btn-create-color-hover: #6C8945
+
+$panel-shadow: rgba(0, 6, 12, 0.3)
+$card-shadow: rgba(0, 6, 12, 0.2)
+
+
+
+.vertical-center
+    position: absolute
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+
+
+@media only screen and (max-width: 768px)
+    .w-resp
+        width: 100%
+
+@media only screen and (min-width: 769px) and (max-width: 991px)
+    .w-resp
+        width: 90%
+
+@media only screen and (min-width: 992px) and (max-width: 1024px)
+    .w-resp
+        width: 70%
+
+
+@media only screen and (min-width: 1024px)
+    .w-resp
+        width: 50%
+
+
+.center
+    margin: 0
+    position: absolute
+    top: 50%
+    left: 50%
+    -ms-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
+
+
+.hero.is-info.is-bold
+    //background-image: linear-gradient(141deg, #00391a 0%, #006C43 71%, #008669 100%)
+    background-image: linear-gradient(141deg, $vermelho-danger 0%, $vermelho 71%, $alaranjado-texto 100%)
+
+
+.hero.is-info
+    background-color: $alaranjado-texto
+    color: #fff
+
+.button:hover
+    color: $vermelho-danger
+
+
+.is-info
+    background-color: rgba($alaranjado-texto, 0.1)
+    border-color: transparent
+    color: $vermelho-danger
+
+
+.button.is-info
+    background-color: rgba($alaranjado-texto, 0.1)
+    border-color: transparent
+    color: rgba($vermelho-danger, 0.7)
+
+
+.button.is-info:hover
+    background-color: rgba($alaranjado-texto, 0.4)
+    color: $vermelho-danger
+
+
+.button.is-primary
+    background-color: $alaranjado
+    border-color: transparent
+    color: #fff
+
+
+.button.is-primary:hover
+    background-color: $alaranjado-texto
+
+
+.input.is-info, .textarea.is-info
+    border-color: $vermelho-danger
+
+
+
+.pageloader
+    padding-top: 1em
+    background: $alaranjado
+    background: rgba( $alaranjado, 0.7 )
+
+.pageloader.is-info
+    padding-top: 1em
+    background: $alaranjado-texto
+    background: rgba( $alaranjado-texto, 0.45 )
+
+
+.message.is-info .message-body
+    border-color: $alaranjado-texto
+    color: $vermelho-danger

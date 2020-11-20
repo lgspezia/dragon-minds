@@ -1,0 +1,54 @@
+/*@import './../../../../node_modules/bulma/sass/utilities/initial-variables'*/
+
+$btn-create-color: #8AB160
+$red: #eb575a
+
+.hasSubmmited
+    &.ng-invalid,
+    & .ng-invalid
+        border-color: $red
+
+
+.text-c
+    text-align: center
+
+.v-align
+    vertical-align: middle
+
+//.w-resp
+//    width: 70%
+
+.container
+    position: relative
+
+
+.m-0
+    margin: 0
+
+
+.borda
+    border: 3px solid $btn-create-color
+
+
+.vertical-center
+    position: absolute
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+
+
+@media only screen and (max-width: 768px)
+    .w-resp
+        width: 100%
+
+@media only screen and (min-width: 769px) and (max-width: 991px)
+    .w-resp
+        width: 90%
+
+@media only screen and (min-width: 992px) and (max-width: 1024px)
+    .w-resp
+        width: 70%
+
+
+@media only screen and (min-width: 1024px)
+    .w-resp
+        width: 50%

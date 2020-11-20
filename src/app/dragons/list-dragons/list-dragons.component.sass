@@ -1,0 +1,43 @@
+@import './../../../assets/styles/sass/mixins.sass'
+
+.page-title-wrapper
+    .level-left
+        display: flex
+
+.dragon__filter
+    min-width: 15rem
+
+.dragons-list
+    margin-top: 1rem
+
+    .dragon
+        > .box
+            position: relative
+
++mediaTablet
+    .dragon
+        > .box
+            height: 100%
+
++mediaDesktop
+    .dragon__actions
+        opacity: 0
+        position: absolute
+        right: .75rem
+        top: 1.25rem
+        transition: opacity .2s ease-in
+
+        .dragon:hover &
+            opacity: 1
+
+    .dragon
+        > .box
+            padding-right: 3.5rem
+
+    .dragon__name
+        margin-bottom: 0
+
+    .dragon__btn
+        border-radius: 2px
+        font-size: .75rem
+
