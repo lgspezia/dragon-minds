@@ -1,5 +1,5 @@
 # Dragon's Memoriam
-##In Dragons we Believe
+## In Dragons we Believe
 Aplicação Angular de exemplo com a temática de dragões
 
 CRUD de dragões, para criar, listar, editar e excluir dragões. API REST. Projeto gerado na versão 7.0.2.
@@ -20,5 +20,5 @@ Todo o roteamento e requisições foram feitos de forma simplificada, para efeit
 ### Acessando a Aplicação
 
 Você será redirecionado para a página de login logo que acessar a URL do projeto. Não será possível alterar as informações dos dragões sem, antes, logar no sistema. Para tal, foi criada uma autenticação _fake_, mas você ainda precisará digitar os dados corretos para ter acesso:
-- E-mail: `dragao@ibm.com`
+- E-mail: `dragao@email`
 - Senha: `dragao`

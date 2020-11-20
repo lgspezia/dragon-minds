@@ -24,13 +24,13 @@
             <div class="column is-6-tablet is-4-fullhd dragon" *ngFor="let dragon of dragons | orderBy: order : false: true | searchFilter: filteredDragons : ['name']">
 
                 <div class="box">
-                    <h2 class="title is-4 dragon__name">
+                    <h2 class="title is-4 dragon-name">
                         <a href="#" [routerLink]="['/dragons', dragon.id]">{{ dragon.name }}</a>
                     </h2>
 
                     <div class="field has-addons dragon__actions">
                         <div class="control">
-                            <button type="button" class="button dragon__btn" title="Editar informações do dragão" [routerLink]="['/dragons', 'edit', dragon.id]">
+                            <button type="button" class="button dragon-btn" title="Editar informações do dragão" [routerLink]="['/dragons', 'edit', dragon.id]">
                                 <span class="icon is-small">
                                     <fa-icon icon="pencil-alt" size="sm"></fa-icon>
                                 </span>
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="control">
-                            <button type="button" class="button dragon__btn" title="Remover dragão" (click)="removeDragon(dragon.id)">
+                            <button type="button" class="button dragon-btn" title="Remover dragão" (click)="removeDragon(dragon.id)">
                                 <span class="icon is-small">
                                     <fa-icon icon="trash" size="sm"></fa-icon>
                                 </span>

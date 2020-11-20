@@ -27,27 +27,25 @@ export class ListDragonsComponent implements OnInit {
             .getAll()
             .subscribe(
                 data => {
-                    this.dragons = this.filterSluggedDragons(data);
+                    this.dragons = this.filterDragons(data);
                     this.isLoading = false;
                 },
                 err => console.error(err)
             );
     }
 
-    private filterSluggedDragons(dragons: any): Dragon[] {
+    private filterDragons(dragons: any): Dragon[] {
 
-        // return dragons.filter(dragon => dragon.slug.trim() !== '' && dragon.type.trim() !== '');
         return dragons.filter(dragon => {
             return dragon.id.trim() !== '' && dragon.type.trim() !== '';
-            // return dragon;
         });
     }
 
-    public removeDragon(slug: string): void {
+    public removeDragon(dragonId: string): void {
         this.service
-            .delete(slug)
+            .delete(dragonId)
             .subscribe(
-                data => this.dragons = this.dragons.filter(item => item.id !== slug),
+                data => this.dragons = this.dragons.filter(item => item.id !== dragonId),
                 err => console.log(err)
             );
     }

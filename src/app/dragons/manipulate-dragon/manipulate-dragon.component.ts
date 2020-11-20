@@ -33,18 +33,18 @@ export class ManipulateDragonComponent implements OnInit {
         this.dragon = new Dragon({});
 
         this.route.params.subscribe(params => {
-            if (params['slug']) {
-                const slug: string = params['slug'];
+            if (params['id']) {
+                const dragonId: string = params['id'];
 
                 this.isEditMode = true;
 
-                if (!slug) {
-                    console.error('Slug not found!');
+                if (!dragonId) {
+                    console.error('Dragão Não Encontrado!');
                     return;
                 }
 
                 this.service
-                    .get(slug)
+                    .get(dragonId)
                     .subscribe(
                         (data) => {
                             this.dragon = data;

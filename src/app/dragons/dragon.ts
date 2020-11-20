@@ -1,20 +1,15 @@
 export class Dragon {
+    private _id: string;
     private _name: string;
-    // private _slug: string;
     private _type: string;
     private _histories: Array<string>; // string[]
     private _createdAt: string;
     private _updatedAt: string;
-    private _id: string;
-    // private createdAt: string;
-    // private name: string;
-    // private type: string;
-    // private histories: Array<any>;
+
 
     constructor(data: any) {
         this._id = data.id || '';
         this._name = data.name || '';
-        // this._slug = data.slug || '';
         this._type = data.type || '';
         this._histories = data.histories || [];
         this._createdAt = data.createdAt || '';
@@ -32,14 +27,6 @@ export class Dragon {
     set name(name: string) {
         this._name = name;
     }
-
-    // get slug(): string {
-    //     return this._slug;
-    // }
-
-    // set slug(slug: string) {
-    //     this._slug = slug;
-    // }
 
     get type(): string {
         return this._type;

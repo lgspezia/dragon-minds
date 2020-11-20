@@ -15,8 +15,8 @@ const routes: Routes = [
     { path: '', component: ScaffoldingComponent, canActivate: [AuthGuard], children: [
         { path: 'dragons', component: ListDragonsComponent },
         { path: 'dragons/new', component: ManipulateDragonComponent },
-        { path: 'dragons/edit/:slug', component: ManipulateDragonComponent },
-        { path: 'dragons/:slug', component: ViewDragonComponent }
+        { path: 'dragons/edit/:id', component: ManipulateDragonComponent },
+        { path: 'dragons/:id', component: ViewDragonComponent }
     ]},
     { path: 'login', component: LoginComponent },
     { path: 'page-not-found', component: PageNotFoundComponent },

@@ -23,7 +23,7 @@ export class ViewDragonComponent implements OnInit {
 
         this.route.params.subscribe(params => {
             this.service
-                .get(params['slug'])
+                .get(params['id'])
                 .subscribe(
                     data => {
                         this.dragon = data;
@@ -35,9 +35,9 @@ export class ViewDragonComponent implements OnInit {
         });
     }
 
-    public removeDragon(slug: string): void {
+    public removeDragon(dragonId: string): void {
         this.service
-            .delete(slug)
+            .delete(dragonId)
             .subscribe(
                 data => this.router.navigate(['/dragons']),
                 err => console.log(err)
